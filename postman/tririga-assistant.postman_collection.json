@@ -1,0 +1,450 @@
+{
+	"info": {
+		"_postman_id": "c4d7d1a1-2882-48ca-b7b2-07302a746120",
+		"name": "tririga-assistant copy",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "tririga - logout",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "{{password}}",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "{{username}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Properties",
+						"value": "*",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{URL}}/oslc/logout",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"oslc",
+						"logout"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "tririga - login",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "{{password}}",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "{{username}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"type": "text",
+						"value": "application/json"
+					},
+					{
+						"key": "Properties",
+						"type": "text",
+						"value": "*"
+					},
+					{
+						"key": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"url": {
+					"raw": "{{URL}}/oslc/login",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"oslc",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "tririga - create service request",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "{{password}}",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "{{username}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Properties",
+						"type": "text",
+						"value": "*"
+					},
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"spi:triBuildingTX\": \"901\",\n    \"spi:triSpaceTX\": \"5A-003\",\n    \"spi:triFloorTX\": \"Floor5\",\n    \"spi:triDescriptionTX\": \"It's too cold in here!\",\n    \"spi:triLocationRequestedTX\": \"\\\\Locations\\\\901\\\\Floor5\\\\5A-003\",\n    \"spi:triRequestClassCL\": \"Room Too Cold\",\n    \"spi:triRequestForLI\": \"Me\",\n    \"spi:action\": \"Submit\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{URL}}/oslc/so/ibmServiceRequestCF",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"oslc",
+						"so",
+						"ibmServiceRequestCF"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "tririga - create room reservation",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "{{password}}",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "{{username}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Properties",
+						"value": "*,reserve:MeetingSpaces{*}",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"spi:triBuildingTX\": \"901\",\n    \"spi:triSpaceTX\": \"5A-003\",\n    \"spi:triSubjectTX\": \"my meeting\",\n    \"spi:triStartDT\": \"2019-09-20T16:00:00-0600\",\n    \"spi:triEndDT\": \"2019-09-20T17:00:00-0600\",\n    \"spi:action\": \"Create\"\n}"
+				},
+				"url": {
+					"raw": "{{URL}}/oslc/so/ibmReservationServiceCF",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"oslc",
+						"so",
+						"ibmReservationServiceCF"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "tririga - delete room reservation",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "{{password}}",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "{{username}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Properties",
+						"type": "text",
+						"value": "*,reserve:MeetingSpaces{*}"
+					},
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"spi:triBuildingTX\": \"901\",\n    \"spi:triSpaceTX\": \"5A-003\",\n    \"spi:triStartDT\": \"2019-09-20T16:00:00-0600\",\n    \"spi:triEndDT\": \"2019-09-20T17:00:00-0600\",\n    \"spi:action\": \"Delete Reservation\"\n}"
+				},
+				"url": {
+					"raw": "{{URL}}/oslc/so/ibmReservationServiceCF",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"oslc",
+						"so",
+						"ibmReservationServiceCF"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "tririga - search rooms",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "{{password}}",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "{{username}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Properties",
+						"value": "*,reserve:MeetingSpaces{*}",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"spi:action\": \"Search Meeting Spaces\",\n    \"spi:triBuildingTX\": \"901\",\n    \"spi:triStartDT\": \"2019-09-19T17:00:00.000-05:00\",\n    \"spi:triEndDT\": \"2019-09-19T18:00:00.000-05:00\",\n    \"spi:triSubjectTX\": \"my meeting\"\n}"
+				},
+				"url": {
+					"raw": "{{URL}}/oslc/so/ibmReservationServiceCF",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"oslc",
+						"so",
+						"ibmReservationServiceCF"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "tririga - locate space",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "{{password}}",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "{{username}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Properties",
+						"type": "text",
+						"value": "*"
+					},
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "{{URL}}/oslc/spq/ibmWALocateSpaceQC?oslc.select=*&oslc.where=spi:triParentBuildingTX=\"%25901%25\" and spi:triNameTX=\"%255A-003%25\"",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"oslc",
+						"spq",
+						"ibmWALocateSpaceQC"
+					],
+					"query": [
+						{
+							"key": "oslc.select",
+							"value": "*"
+						},
+						{
+							"key": "oslc.where",
+							"value": "spi:triParentBuildingTX=\"%25901%25\" and spi:triNameTX=\"%255A-003%25\""
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "tririga - locate person",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "{{password}}",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "{{username}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Properties",
+						"type": "text",
+						"value": "*"
+					},
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "{{URL}}/oslc/spq/ibmWALocatePersonQC?oslc.select=*&oslc.where=spi:triNameTX=\"%25troy%25\"",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"oslc",
+						"spq",
+						"ibmWALocatePersonQC"
+					],
+					"query": [
+						{
+							"key": "oslc.select",
+							"value": "*"
+						},
+						{
+							"key": "oslc.where",
+							"value": "spi:triNameTX=\"%25troy%25\""
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "tririga - provisioning query",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": ""
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}
