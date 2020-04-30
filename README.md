@@ -167,6 +167,4 @@ It's time to test with the Assistant Chat UI available from the Workplace Servic
 
 4.  If you find that you reservations made through the assistant do not appear in the Workplace Services home page (/p/web/workplaceServices), then check that the security groups assigned to that user have an Organization set.  The security groups mentioned in Step D don't have an Organization set by default.  There might also be issues with the Organization set on the assistant account as well as Organization set on the user and the buildings.
 
-5.  If you do not see the `Request IBM TRIRIGA Assistant` menu item in the `Requests` menu, then this is likely caused by changes to the menu that need to be merged.  Feel free to add the `ibmAssistantProvisionOrder-navigation` menu item to any Navigation Collection you wish.
-
 End of instructions.
