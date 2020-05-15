@@ -144,7 +144,7 @@ If you feel that your workplace service apps are loading much slower after the e
 
 The OM package imported contains a new model for the UX apps. Non-admin users need to be given proper access to this model.  To accomplish this, you can either create a new security group or modify an existing.  The steps below modify the `TRIRIGA Request Central - Fundamentals` security group to allow users, that have this group, to read, update, create and delete the `ibmTriAssistant` model.
 
-1.  From the TRIRIGA Main UI, go to "Tools > Security Manager".
+1.  From the TRIRIGA Main UI, go to "Tools > Adminstration > Security Manager".
 2.  Click on the `TRIRIGA Request Central - Fundamentals` security group.
 3.  In the window appears, click on the Access tab.
 4.  Scroll down and expand the `Models` root and select `ibmTriAssistant`.
