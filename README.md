@@ -50,8 +50,9 @@ In order to allow the assistant user to create location reservations and service
     - IBM TRIRIGA Request Central, or
     - IBM TRIRIGA Workplace Reservation Manager
 
-2.	Make note of the user name and password because it will needed in the provisioning step below.
-3.	Important: Do NOT give the assistant user a primary location.  This user will be used to book rooms and submit service requests on behalf of all users in the TRIRIGA instance.
+2.	Provide a primary location for the assistant account.  This is needed at the moment for Service Request creation to work.
+3.  Provide an organization to the assistant account.  This is also needed at the moment for Service Request creation to work.
+4.	Make note of the user name and password because it will needed in the provisioning step below.
 
 #### C) TEST THE OSLC ENDPOINTS.
 
@@ -144,9 +145,9 @@ If you feel that your workplace service apps are loading much slower after the e
 
 The OM package imported contains a new model for the UX apps. Non-admin users need to be given proper access to this model.  To accomplish this, you can either create a new security group or modify an existing.  The steps below modify the `TRIRIGA Request Central - Fundamentals` security group to allow users, that have this group, to read, update, create and delete the `ibmTriAssistant` model.
 
-1.  From the TRIRIGA Main UI, go to "Tools > Adminstration > Security Manager".
+1.  From the TRIRIGA Main UI, go to `Tools > Adminstration > Security Manager`.
 2.  Click on the `TRIRIGA Request Central - Fundamentals` security group.
-3.  In the window appears, click on the Access tab.
+3.  In the window appears, click on the `Access` tab.
 4.  Scroll down and expand the `Models` root and select `ibmTriAssistant`.
 5.  In the "Model Access" panel on the right, select `Read,Update,Create and Delete`.
 6.  Click Save & Close.
@@ -166,5 +167,7 @@ It's time to test with the Assistant Chat UI available from the Workplace Servic
 3.  If the chat icon doesn't appear in the bottom right corner of the Workplace Services app, then check for errors using the Console tab of the Inspector (right click in webpage and choose `Inspect`).
 
 4.  If you find that you reservations made through the assistant do not appear in the Workplace Services home page (/p/web/workplaceServices), then check that the security groups assigned to that user have an Organization set.  The security groups mentioned in Step D don't have an Organization set by default.  There might also be issues with the Organization set on the assistant account as well as Organization set on the user and the buildings.
+
+5.  If service requests aren't getting created, check that you provided a primary location and organization to the assistant account.
 
 End of instructions.
