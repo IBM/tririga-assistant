@@ -63,7 +63,7 @@ Execute a quick `curl` command to validate OSLC endpoints used during provisioni
 2.  Execute the following `curl` command and replace TRIRIGA_URL and ENCODED_USERNAME_AND_PASSWORD with your info.
     `curl --location --request GET 'TRIRIGA_URL/oslc/spq/ibmWAProvisionQC?oslc.select=*' --header 'Authorization: Basic ENCODED_USERNAME_AND_PASSWORD' --header 'User-Agent: PostmanRuntime/7.23.0' --insecure`
 
-The response should have some `triParentBuildingTX` values returned.  If an error occurs and you can't solve the problem on your own, contact your IBM representative.
+The response should have some `triParentBuildingTX` values returned.  If you get an OSLC error, check that at least one of the groups added to the assistant account has an organization set.  If you get an authentication error and your base64 encoded username:password ends in "==", try removing one or both of the equal signs.  If you can't solve the problem on your own, contact your IBM representative.  Getting results from the curl command is required for the provisioning form to work in the next part of these instructions.
 
 Also, optionally, if you understand Postman and would like to test all the OSLC calls, then you can test by using the Postman collection provided in the postman directory.  You will need to change the payload to have 'location/building/space' you have defined in your TRIRIGA instance. A successful test of the OSLC APIs when there are no OSLC errors.
 
