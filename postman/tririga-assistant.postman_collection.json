@@ -1,7 +1,7 @@
 {
 	"info": {
 		"_postman_id": "c4d7d1a1-2882-48ca-b7b2-07302a746120",
-		"name": "tririga-assistant copy",
+		"name": "tririga-assistant",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
 	"item": [
@@ -137,7 +137,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n    \"spi:triBuildingTX\": \"901\",\n    \"spi:triSpaceTX\": \"5A-003\",\n    \"spi:triFloorTX\": \"Floor5\",\n    \"spi:triDescriptionTX\": \"It's too cold in here!\",\n    \"spi:triLocationRequestedTX\": \"\\\\Locations\\\\901\\\\Floor5\\\\5A-003\",\n    \"spi:triRequestClassCL\": \"Room Too Cold\",\n    \"spi:triRequestForLI\": \"Me\",\n    \"spi:action\": \"Submit\"\n}",
+					"raw": "{\n    \"spi:triBuildingTX\": \"{{building}}\",\n    \"spi:triSpaceTX\": \"{{space}}\",\n    \"spi:triDescriptionTX\": \"It's too cold in here!\",\n    \"spi:triRequestClassCL\": \"Room Too Cold\",\n    \"spi:triCustomerOrgTX\": \"\\\\Organizations\",\n    \"spi:action\": \"Submit\",\n    \"spi:triRequestedForTX\": \"{{requestFor}}\"\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -192,57 +192,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n    \"spi:triBuildingTX\": \"901\",\n    \"spi:triSpaceTX\": \"5A-003\",\n    \"spi:triSubjectTX\": \"my meeting\",\n    \"spi:triStartDT\": \"2019-09-20T16:00:00-0600\",\n    \"spi:triEndDT\": \"2019-09-20T17:00:00-0600\",\n    \"spi:action\": \"Create\"\n}"
-				},
-				"url": {
-					"raw": "{{URL}}/oslc/so/ibmReservationServiceCF",
-					"host": [
-						"{{URL}}"
-					],
-					"path": [
-						"oslc",
-						"so",
-						"ibmReservationServiceCF"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "tririga - delete room reservation",
-			"request": {
-				"auth": {
-					"type": "basic",
-					"basic": [
-						{
-							"key": "password",
-							"value": "{{password}}",
-							"type": "string"
-						},
-						{
-							"key": "username",
-							"value": "{{username}}",
-							"type": "string"
-						}
-					]
-				},
-				"method": "POST",
-				"header": [
-					{
-						"key": "Properties",
-						"type": "text",
-						"value": "*,reserve:MeetingSpaces{*}"
-					},
-					{
-						"key": "Content-Type",
-						"name": "Content-Type",
-						"value": "application/json",
-						"type": "text"
-					}
-				],
-				"body": {
-					"mode": "raw",
-					"raw": "{\n    \"spi:triBuildingTX\": \"901\",\n    \"spi:triSpaceTX\": \"5A-003\",\n    \"spi:triStartDT\": \"2019-09-20T16:00:00-0600\",\n    \"spi:triEndDT\": \"2019-09-20T17:00:00-0600\",\n    \"spi:action\": \"Delete Reservation\"\n}"
+					"raw": "{\n    \"spi:triBuildingTX\": \"{{building}}\",\n    \"spi:triSpaceTX\": \"{{space}}\",\n    \"spi:triSubjectTX\": \"my meeting\",\n    \"spi:triStartDT\": \"2020-06-13T16:00:00-0600\",\n    \"spi:triEndDT\": \"2020-06-13T17:00:00-0600\",\n    \"spi:action\": \"Create\",\n    \"spi:triRequestedForTX\": \"{{requestFor}}\"\n}"
 				},
 				"url": {
 					"raw": "{{URL}}/oslc/so/ibmReservationServiceCF",
@@ -292,7 +242,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n    \"spi:action\": \"Search Meeting Spaces\",\n    \"spi:triBuildingTX\": \"901\",\n    \"spi:triStartDT\": \"2019-09-19T17:00:00.000-05:00\",\n    \"spi:triEndDT\": \"2019-09-19T18:00:00.000-05:00\",\n    \"spi:triSubjectTX\": \"my meeting\"\n}"
+					"raw": "{\n    \"spi:action\": \"Search Meeting Spaces\",\n    \"spi:triBuildingTX\": \"{{building}}\",\n    \"spi:triStartDT\": \"2020-06-12T17:00:00.000-05:00\",\n    \"spi:triEndDT\": \"2020-06-12T18:00:00.000-05:00\",\n    \"spi:triSubjectTX\": \"my meeting\"\n}"
 				},
 				"url": {
 					"raw": "{{URL}}/oslc/so/ibmReservationServiceCF",
@@ -348,7 +298,7 @@
 					"raw": ""
 				},
 				"url": {
-					"raw": "{{URL}}/oslc/spq/ibmWALocateSpaceQC?oslc.select=*&oslc.where=spi:triParentBuildingTX=\"%25901%25\" and spi:triNameTX=\"%255A-003%25\"",
+					"raw": "{{URL}}/oslc/spq/ibmWALocateSpaceQC?oslc.select=*&oslc.where=spi:triParentBuildingTX=\"%25{{building}}%25\" and spi:triNameTX=\"%25{{space}}%25\"",
 					"host": [
 						"{{URL}}"
 					],
@@ -364,7 +314,7 @@
 						},
 						{
 							"key": "oslc.where",
-							"value": "spi:triParentBuildingTX=\"%25901%25\" and spi:triNameTX=\"%255A-003%25\""
+							"value": "spi:triParentBuildingTX=\"%25{{building}}%25\" and spi:triNameTX=\"%25{{space}}%25\""
 						}
 					]
 				}
@@ -411,7 +361,7 @@
 					"raw": ""
 				},
 				"url": {
-					"raw": "{{URL}}/oslc/spq/ibmWALocatePersonQC?oslc.select=*&oslc.where=spi:triNameTX=\"%25troy%25\"",
+					"raw": "{{URL}}/oslc/spq/ibmWALocatePersonQC?oslc.select=*&oslc.where=spi:triNameTX=\"%25{{requestFor}}%25\"",
 					"host": [
 						"{{URL}}"
 					],
@@ -427,7 +377,7 @@
 						},
 						{
 							"key": "oslc.where",
-							"value": "spi:triNameTX=\"%25troy%25\""
+							"value": "spi:triNameTX=\"%25{{requestFor}}%25\""
 						}
 					]
 				}
@@ -435,12 +385,51 @@
 			"response": []
 		},
 		{
-			"name": "tririga - provisioning query",
+			"name": "tririga - provisioning - get building and room names",
 			"request": {
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": ""
+					"raw": "{{URL}}/oslc/spq/ibmWAProvisionQC?oslc.select=*",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"oslc",
+						"spq",
+						"ibmWAProvisionQC"
+					],
+					"query": [
+						{
+							"key": "oslc.select",
+							"value": "*"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "tririga - provisioning - get building TZs",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{URL}}/oslc/spq/ibmWABuildingstzQC?oslc.select=*",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"oslc",
+						"spq",
+						"ibmWABuildingstzQC"
+					],
+					"query": [
+						{
+							"key": "oslc.select",
+							"value": "*"
+						}
+					]
 				}
 			},
 			"response": []
