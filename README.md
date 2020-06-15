@@ -63,7 +63,7 @@ Execute a quick `curl` command to validate OSLC endpoints used during provisioni
 2.  Execute the following `curl` command and replace TRIRIGA_URL and ENCODED_USERNAME_AND_PASSWORD with your info.
     `curl --location --request GET 'TRIRIGA_URL/oslc/spq/ibmWAProvisionQC?oslc.select=*' --header 'Authorization: Basic ENCODED_USERNAME_AND_PASSWORD' --header 'User-Agent: PostmanRuntime/7.23.0' --insecure`
 
-The response should have some `triParentBuildingTX` values returned.  If an error occurs and you can't solve the problem on your own, contact your IBM representative.
+The response should have some `triParentBuildingTX` values returned.  If you get an OSLC error, check that at least one of the groups added to the assistant account has an organization set.  If you get an authentication error and your base64 encoded username:password ends in "==", try removing one or both of the equal signs.  If you can't solve the problem on your own, contact your IBM representative.  Getting results from the curl command is required for the provisioning form to work in the next part of these instructions.
 
 Also, optionally, if you understand Postman and would like to test all the OSLC calls, then you can test by using the Postman collection provided in the postman directory.  You will need to change the payload to have 'location/building/space' you have defined in your TRIRIGA instance. A successful test of the OSLC APIs when there are no OSLC errors.
 
@@ -104,13 +104,13 @@ Once the information has been successfully received by the IBM TRIRIGA Assistant
 6.  Upload the changes by clicking on the Upload view file icon.
 7.  Click `Save & Close` button in upper right corner.
 
-8.	In the View Files section, click on /triview-workplace-services-dev.html
+8.	In the View Files section, click on `/triview-workplace-services-dev.html`.
 9.	Click on the Download View File icon.
 10.	Edit the `triview-workplace-services-devhtml` file and at the bottom of the template section, paste the following lines of code above the `</template>` so the following HTML is between the `<template>` and `</template>` lines:
-**Make sure to replace `PASTE_THE_INTEGRATION_ID_HERE` with the Integration ID provided.**
+**Make sure to replace `PLACE_INTEGRATION_ID_HERE` with the Integration ID provided.**
     
     ```html
-    <ibm-TriAssistant integration-id="PASTE_THE_INTEGRATION_ID_HERE" region="us-south" model-and-view="ibmTriAssistant" instance-id="-1" online="[[online]]"> </ibm-TriAssistant>
+    <ibm-TriAssistant integration-id="PLACE_INTEGRATION_ID_HERE" region="us-south" model-and-view="ibmTriAssistant" instance-id="-1" online="[[online]]"> </ibm-TriAssistant>
     ```
 11. Upload the changes by clicking on the Upload view file icon.
 12. Click `Save & Close` button in upper right corner.
@@ -125,10 +125,22 @@ From the "Web View Designer", repeat the same steps directly above for the other
 
 If you feel that your workplace service apps are loading much slower after the edits, then you can "vulcanize" the apps [following these instructions](https://www.ibm.com/developerworks/community/wikis/home?lang=en#!/wiki/IBM TRIRIGA1/page/How to vulcanize your UX application).  If you do this, make sure you undo the change like F2 that sets the `Production Filename` to the `Development Filename`.
 
+#### I) ADD INTEGRATION ID to Assistant Portal UX app
+
+A UX app, call the Assistant Portal, is provided in the OM package that will allow you to view some metrics on the usage of the Assistant.  Follow these steps to get the Portal working.
+
+1.	Open the Portal view by going to Tools > Web View Designer > ibmTriAssistantPortal.
+2.	In the View Files section, click on /ibm-tri-assistant-portal.html
+3.	Click on the Download View File icon.
+4.	Edit the `ibm-tri-assistant-portalhtml` file and on the first line of code, replace `PLACE_INTEGRATION_ID_HERE` with the Integration ID provided.
+5.  Upload the changes by clicking on the Upload view file icon.
+6.  Click `Save & Close` button in upper right corner.
+
+A Navigation Item, named ibmTriAssistantPortal, has been provided in the OM package that you can then add to any menu you want, but the portal can be accessed using the /p/web/triAssistantPortal URL.
 
 ### Part 4 - Configure permissions for users 
 
-#### I) ALLOW ASSISTANT USER TO CREATE RESERVATIONS ON BEHALF OF OTHER USERS.
+#### J) ALLOW ASSISTANT USER TO CREATE RESERVATIONS ON BEHALF OF OTHER USERS.
 
 1.	If assistant will be used to make room reservations, the `TRIRIGAWEB.properties` should have the `SHOW_PREFERENCES_LINK` env var set to `Y` 
     
@@ -141,7 +153,7 @@ If you feel that your workplace service apps are loading much slower after the e
     - In the Reservation Delegates section, click the Find button
     - Click the checkbox for the `triassistant` user and click OK
 
-#### J) MODIFY OR CREATE NEW SECURITY GROUP
+#### K) MODIFY OR CREATE NEW SECURITY GROUP
 
 The OM package imported contains a new model for the UX apps. Non-admin users need to be given proper access to this model.  To accomplish this, you can either create a new security group or modify an existing.  The steps below modify the `TRIRIGA Request Central - Fundamentals` security group to allow users, that have this group, to read, update, create and delete the `ibmTriAssistant` model.
 
@@ -152,15 +164,15 @@ The OM package imported contains a new model for the UX apps. Non-admin users ne
 5.  In the "Model Access" panel on the right, select `Read,Update,Create and Delete`.
 6.  Click Save & Close.
 
-#### K) TEST THE WORKPLACE SERVICES APPS.
+#### L) TEST THE WORKPLACE SERVICES APPS.
 
-It's time to test with the Assistant Chat UI available from the Workplace Services app.  Make sure the user you are using has a primary location set, isn't the system or assistant user, and has the security group modified or created in step L.  If all edits were done correctly, you should see a chat icon appear at the bottom right of the Workplace Services apps.  If you know a room name, then try out the service request functionality by typing "the ________ room has a broken chair" and if you have reserve functionality, try "book a room".
+It's time to test with the Assistant Chat UI available from the Workplace Services app.  Make sure the user you are using has a primary location set, isn't the system or assistant user, and has the security group modified or created in step K.  If all edits were done correctly, you should see a chat icon appear at the bottom right of the Workplace Services apps.  If you know a room name, then try out the service request functionality by typing "the ________ room has a broken chair" and if you have reserve functionality, try "book a room".
 
 ![image](images/screenshot.png)
 
 ### TROUBLESHOOTING
 
-1.  If a popup appears saying "You do not have permission to access this page" when you access the Workplace Services apps, then the user doesn't have a security group that has the permissions documented in step J.
+1.  If a popup appears saying "You do not have permission to access this page" when you access the Workplace Services apps, then the user doesn't have a security group that has the permissions documented in step K.
 
 2.  If the chat icon appears but you don't see the introduction similar to what is shown in the image at the very top of this doc, then check that the user you are using has a primary location set in the user's profile.
 
