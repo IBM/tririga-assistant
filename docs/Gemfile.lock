@@ -35,6 +35,9 @@ GEM
       jekyll (>= 3.7, < 5.0)
     jekyll-gist (1.5.0)
       octokit (~> 4.2)
+    jekyll-github-metadata (2.13.0)
+      jekyll (>= 3.4, < 5.0)
+      octokit (~> 4.0, != 4.4.0)
     jekyll-include-cache (0.2.0)
       jekyll (>= 3.7, < 5.0)
     jekyll-paginate (1.1.0)
@@ -94,6 +97,7 @@ PLATFORMS
 DEPENDENCIES
   jekyll (~> 4.1.0)
   jekyll-feed (~> 0.12)
+  jekyll-github-metadata
   minima (~> 2.5)
   minimal-mistakes-jekyll
   tzinfo (~> 1.2)
