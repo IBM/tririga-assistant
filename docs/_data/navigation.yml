@@ -1,0 +1,24 @@
+docs:
+  - title: Getting Started
+    children:
+      - title: "Product Info"
+        url: /
+      - title: "Requirements"
+        url: /requirements/
+      - title: "Installation"
+        url: /installation/
+      - title: "Upgrading"
+        url: /upgrading/
+
+
+  - title: Extensions
+    children:
+      - title: "Slack"
+        url: /slack/
+
+  - title: Support
+    children:
+      - title: "Troubleshooting"
+        url: /troubleshooting/
+      - title: "Changelog"
+        url: /changelog/
