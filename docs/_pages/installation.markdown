@@ -11,7 +11,7 @@ sidebar:
   nav: "docs"
 ---
 
-## [GET THE OM PACKAGE!]({{ site.url }}/tree/master/om-package)
+## [GET THE OM PACKAGE!]({{ site.repository }}/tree/master/om-package)
 
 ## Estimated time
 This installation should take 1-2 hours to complete, not including the time for IBM to provision the TRIRIGA Assistant skill.
