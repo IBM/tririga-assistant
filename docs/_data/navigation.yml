@@ -5,11 +5,17 @@ docs:
         url: /
       - title: "Requirements"
         url: /requirements/
-      - title: "Installation"
+      - title: "Installing"
         url: /installation/
+
+  - title: Advanced
+    children: 
       - title: "Upgrading"
         url: /upgrading/
-
+      - title: "Refreshing"
+        url: /refreshing/
+      - title: "Uninstalling"
+        url: /uninstall/
 
   - title: Extensions
     children:

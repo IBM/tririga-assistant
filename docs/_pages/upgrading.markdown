@@ -16,17 +16,21 @@ sidebar:
 - Be aware that your Assistant will take time to provision and upgrade
 
 
-### Part 1 - OM Package Import
+### Step 1 - OM Package Import
 
-1.	Create new Object Migration import package selecting the `tri-assistant-*.zip` file provided in the om-package folder.
+1.	Create new Object Migration import package selecting [the tri-assistant-*.zip file]({{ site.github.repository_url }}/tree/master/om-package) provided in the om-package folder.
 2.	Validate and Import the new OM package.
 
 
-### Part 2 - Submit the Provisioning Request
+### Step 2 - Clear ClassLoader Cache
 
-#### Step A) COMPLETE THE PROVISIONING FORM
+We have found that any new ClassLoader imported through OM import doesn't always get used by the Provisioning Form.  To make sure this happens, we ask that you flush the "Custom ClassLoader Data" cache using the following steps.
 
-The OM package imported in the part previous contains a form that will execute a process of gathering data for the Assistant and providing that data to IBM.  The form asks for the user name and password for the account created during installation.  This is needed so the IBM's TRIRIGA Assistant services can make an OSLC call back into your TRIRIGA instance and gather building and room names.
+1. From the System Administration UI, choose `Caches`.
+2. Click on `Custom ClassLoader Data`.
+
+
+### Step 3 - Submit the Provisioning Request
 
 1. From the TRIRIGA Main Page, click on My Reports > System Reports, and filter on the Business Object column for `ibmAssistantProvisionOrder`.
 2. Execute the `TRIRIGA Assistant Provision Record Query`.
@@ -37,6 +41,6 @@ The OM package imported in the part previous contains a form that will execute a
 5. Click Submit.
 
 
-#### Step B) WAIT FOR INTEGRATION ID FROM IBM
+### Step 4 - Wait for contact from a IBM TRIRIGA Assistant team member
 
-Once the information has been successfully received by the IBM TRIRIGA Assistant services, you will be contacted through email at the email address provided on the form.  Once you receive the Integration ID, you may proceed with the rest of the steps.  If you do not receive a response from IBM in a week, please contact your IBM representative.
+Once the information has been successfully received by the IBM TRIRIGA Assistant services, an IBM TRIRIGA Assistant team member will upgrade the Watson Assistant skill.  Once complete, you will be contacted through email at the email address provided on the form with further instructions if needed.  If you do not receive a response from IBM in a week, please contact your IBM representative.

@@ -105,25 +105,20 @@ A UX app, call the Assistant Portal, is provided in the OM package that will all
 A Navigation Item, named ibmTriAssistantPortal, has been provided in the OM package that you can then add to any menu you want, but the portal can be accessed using the /p/web/triAssistantPortal URL.
 
 ### Part 4 - Configure permissions for users
-#### J) ALLOW ASSISTANT USER TO CREATE RESERVATIONS ON BEHALF OF OTHER USERS.
-1.  If assistant will be used to make room reservations, the `TRIRIGAWEB.properties` should have the `SHOW_PREFERENCES_LINK` env var set to `Y`
 
-    - (note you will need to restart your WebSphere server if you have to change this value).
-2.  For each user that plans to use the assistant to create location reservations, they must do the following:
-    - Click the Welcome, {name} in the main UI home page
-    - Click the Preferences tab
-    - Click the Reservation Delegates tab
-    - In the Reservation Delegates section, click the Find button
-    - Click the checkbox for the `triassistant` user and click OK
-
-#### K) MODIFY OR CREATE NEW SECURITY GROUP
-The OM package imported contains a new model for the UX apps. Non-admin users need to be given proper access to this model.  To accomplish this, you can either create a new security group or modify an existing.  The steps below modify the `TRIRIGA Request Central - Fundamentals` security group to allow users, that have this group, to read, update, create and delete the `ibmTriAssistant` model.
+#### J) ADD ACCESS TO ibmTriAssistant MODEL
+The OM package imported contains a new model for the UX apps.  Non-admin users need to be given proper access to this model.  To accomplish this, you can either create a new security group or modify an existing.  The steps below modify the `TRIRIGA Request Central - Fundamentals` security group to allow users, that have this group, to read, update, create and delete the `ibmTriAssistant` model.
 1.  From the TRIRIGA Main UI, go to `Tools > Adminstration > Security Manager`.
 2.  Click on the `TRIRIGA Request Central - Fundamentals` security group.
 3.  In the window appears, click on the `Access` tab.
 4.  Scroll down and expand the `Models` root and select `ibmTriAssistant`.
 5.  In the "Model Access" panel on the right, select `Read,Update,Create and Delete`.
 6.  Click Save & Close.
+
+
+#### K) ADD ACCESS TO ibmTriAssistantPortal MODEL
+For admin users that need to see the usage statistics of the assistant, access to the ibmTriAssistantPortal model needs to be added to a security group for administrators (or create a new group for this).  Follow the same steps as above to add the `ibmTriAssistantPortal` model.
+
 
 #### L) TEST THE WORKPLACE SERVICES APPS.
 It's time to test with the Assistant Chat UI available from the Workplace Services app.  Make sure the user you are using has a primary location set, isn't the system or assistant user, and has the security group modified or created in step K.  If all edits were done correctly, you should see a chat icon appear at the bottom right of the Workplace Services apps.  If you know a room name, then try out the service request functionality by typing "the ________ room has a broken chair" and if you have reserve functionality, try "book a room".
