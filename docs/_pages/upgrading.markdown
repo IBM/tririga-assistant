@@ -34,11 +34,12 @@ We have found that any new ClassLoader imported through OM import doesn't always
 
 1. From the TRIRIGA Main Page, click on My Reports > System Reports, and filter on the Business Object column for `ibmAssistantProvisionOrder`.
 2. Execute the `TRIRIGA Assistant Provision Record Query`.
-3. Click on the only record found.  Don't add a record, just modify the existing record that was provided in the OM package.
-2. Enter the URL for your TRIRIGA instance. Note: The instance must be accessible without a VPN and through HTTPS. Include the complete path, starting with `https://`.
-3. Enter the user name and password for the assistant account you created earlier.
-4. Enter your name and email address so we can contact you when the assistant services have been provisioned for your instance.
-5. Click Submit.
+3. Select the record found (there should be only one) and Click `Delete` to remove the old record. 
+4. Click `Add` to create a new record.
+5. Enter the URL for your TRIRIGA instance. Note: The instance must be accessible without a VPN and through HTTPS. Include the complete path, starting with `https://`.
+6. Enter the user name and password for the assistant account you created earlier.
+7. Enter your name and email address so we can contact you when the assistant services have been provisioned for your instance.
+8. Click Submit.
 
 
 ### Step 4 - Wait for contact from a IBM TRIRIGA Assistant team member
