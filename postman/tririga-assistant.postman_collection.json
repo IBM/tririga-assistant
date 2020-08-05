@@ -192,7 +192,10 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n    \"spi:triBuildingTX\": \"{{building}}\",\n    \"spi:triSpaceTX\": \"{{space}}\",\n    \"spi:triSubjectTX\": \"my meeting\",\n    \"spi:triStartDT\": \"2020-06-13T16:00:00-0600\",\n    \"spi:triEndDT\": \"2020-06-13T17:00:00-0600\",\n    \"spi:action\": \"Create\",\n    \"spi:triRequestedForTX\": \"{{requestFor}}\"\n}"
+					"raw": "{\n    \"spi:triBuildingTX\": \"{{building}}\",\n    \"spi:triSpaceTX\": \"{{space}}\",\n    \"spi:triSubjectTX\": \"my meeting\",\n    \"spi:triStartDT\": \"2020-06-13T16:00:00-0600\",\n    \"spi:triEndDT\": \"2020-06-13T17:00:00-0600\",\n    \"spi:action\": \"Create\",\n    \"spi:triRequestedForTX\": \"{{requestFor}}\"\n}",
+					"options": {
+						"raw": {}
+					}
 				},
 				"url": {
 					"raw": "{{URL}}/oslc/so/ibmReservationServiceCF",
@@ -242,7 +245,10 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n    \"spi:action\": \"Search Meeting Spaces\",\n    \"spi:triBuildingTX\": \"{{building}}\",\n    \"spi:triStartDT\": \"2020-06-12T17:00:00.000-05:00\",\n    \"spi:triEndDT\": \"2020-06-12T18:00:00.000-05:00\",\n    \"spi:triSubjectTX\": \"my meeting\"\n}"
+					"raw": "{\n    \"spi:action\": \"Search Meeting Spaces\",\n    \"spi:triBuildingTX\": \"{{building}}\",\n    \"spi:triStartDT\": \"2020-06-12T17:00:00.000-05:00\",\n    \"spi:triEndDT\": \"2020-06-12T18:00:00.000-05:00\",\n    \"spi:triSubjectTX\": \"my meeting\"\n}",
+					"options": {
+						"raw": {}
+					}
 				},
 				"url": {
 					"raw": "{{URL}}/oslc/so/ibmReservationServiceCF",
@@ -295,7 +301,10 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": ""
+					"raw": "",
+					"options": {
+						"raw": {}
+					}
 				},
 				"url": {
 					"raw": "{{URL}}/oslc/spq/ibmWALocateSpaceQC?oslc.select=*&oslc.where=spi:triParentBuildingTX=\"%25{{building}}%25\" and spi:triNameTX=\"%25{{space}}%25\"",
@@ -358,7 +367,10 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": ""
+					"raw": "",
+					"options": {
+						"raw": {}
+					}
 				},
 				"url": {
 					"raw": "{{URL}}/oslc/spq/ibmWALocatePersonQC?oslc.select=*&oslc.where=spi:triNameTX=\"%25{{requestFor}}%25\"",
@@ -423,6 +435,46 @@
 						"oslc",
 						"spq",
 						"ibmWABuildingstzQC"
+					],
+					"query": [
+						{
+							"key": "oslc.select",
+							"value": "*"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "tririga - provisioning - get floors",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "{{password}}",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "{{username}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{URL}}/oslc/spq/ibmWAFloorsQC?oslc.select=*",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"oslc",
+						"spq",
+						"ibmWAFloorsQC"
 					],
 					"query": [
 						{
