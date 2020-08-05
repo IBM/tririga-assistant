@@ -3,6 +3,8 @@ docs:
     children:
       - title: "Product Info"
         url: /
+      - title: "Free Trial"
+        url: /trial/
       - title: "Requirements"
         url: /requirements/
       - title: "Installing"
