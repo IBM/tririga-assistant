@@ -4,8 +4,8 @@
 
 permalink: /slack/
 layout: home
-title: Slack for TRIRIGA Assistant
-description: Steps for adding your own slack integration for your employees using TRIRIGA Assistant.
+title: TRIRIGA Assistant for Slack
+description: Steps for adding your own Slack integration for your employees using TRIRIGA Assistant.
 
 sidebar:
   nav: "docs"

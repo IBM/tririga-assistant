@@ -23,6 +23,8 @@ docs:
     children:
       - title: "Slack"
         url: /slack/
+      - title: "Teams"
+        url: /teams/
 
   - title: Support
     children:
