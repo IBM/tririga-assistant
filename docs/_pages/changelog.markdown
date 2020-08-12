@@ -11,6 +11,19 @@ sidebar:
   nav: "docs"
 ---
 
+## Version 1.0.5
+
+1. New Feature - Teams bot code pattern: https://github.com/IBM/tririga-assistant-teamsbot
+
+2. New Feature - Assistant now knows the floors in all buildings so can respond correctly when asked to reserve a room on floors that don't exist
+
+3. Enhancement - Room reservation start times rounded to nearest 15 minute interval
+
+4. Enhancement - Better name search for people and rooms by filtering on whole words
+
+5. Fixes - 30+ fixes and improvements to better process information provided to the assistant during digressions, clarification and changes.
+
+
 ## Version 1.0.4
 
 In this update we explore the possibilities of analytics with IBM TRIRIGA
