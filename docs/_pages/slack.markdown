@@ -24,5 +24,5 @@ sidebar:
 3.  Deploy the code on IBM Cloud.
 4.  Test conversation with the Slackbot.
 
-## [GO TO THE DOCS and CODE!](https://ibm.github.io/tririga-assistant-slackbot/)
+## [GO TO THE DOCS and CODE!](https://github.com/IBM/tririga-assistant-slackbot/)
 
