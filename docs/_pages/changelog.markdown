@@ -23,6 +23,9 @@ sidebar:
 
 5. Fixes - 30+ fixes and improvements to better process information provided to the assistant during digressions, clarification and changes.
 
+Conversing with TRIRIGA Assistant through Microsoft Teams:
+![alt]({{ site.url }}{{ site.baseurl }}/assets/images/teams/TeamsScreenshot.png)
+
 
 ## Version 1.0.4
 
