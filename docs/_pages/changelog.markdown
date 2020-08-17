@@ -13,7 +13,7 @@ sidebar:
 
 ## Version 1.0.5
 
-1. New Feature - Teams bot code pattern: https://github.com/IBM/tririga-assistant-teamsbot
+1. New Feature - Teams bot code pattern: [https://github.com/IBM/tririga-assistant-teamsbot](https://github.com/IBM/tririga-assistant-teamsbot)
 
 2. New Feature - Assistant now knows the floors in all buildings so can respond correctly when asked to reserve a room on floors that don't exist
 
