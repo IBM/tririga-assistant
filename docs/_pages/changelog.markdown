@@ -11,7 +11,18 @@ sidebar:
   nav: "docs"
 ---
 
-## Version 1.0.5
+## 1.0.6
+
+1. New Feature - Reserve and locate workspaces. 
+
+2. New Feature - Add your own Watson Assistant skills (beta).  Contact us for more information.
+
+3. Important Fix - Response time performance fix.  Most responses 3 seconds faster!
+
+4. Important Fix - Service requests created use user's location and organization.
+
+
+## 1.0.5
 
 1. New Feature - Teams bot code pattern: [https://github.com/IBM/tririga-assistant-teamsbot](https://github.com/IBM/tririga-assistant-teamsbot)
 
@@ -27,7 +38,7 @@ Conversing with TRIRIGA Assistant through Microsoft Teams:
 ![alt]({{ site.url }}{{ site.baseurl }}/assets/images/teams/TeamsScreenshot.png)
 
 
-## Version 1.0.4
+## 1.0.4
 
 In this update we explore the possibilities of analytics with IBM TRIRIGA
 Assistant. With Version 1.0.4 we are introducing a new dashboard for TRIRIGA
