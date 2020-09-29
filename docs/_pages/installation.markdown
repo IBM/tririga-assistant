@@ -36,9 +36,7 @@ In order to allow the assistant user to create location reservations and service
     - IBM Facilities and Real Estate Management on Cloud Self Service, or
     - IBM TRIRIGA Request Central, or
     - IBM TRIRIGA Workplace Reservation Manager
-2.  Provide a primary location for the assistant account.  This is needed at the moment for Service Request creation to work.
-3.  Provide an organization to the assistant account.  This is also needed at the moment for Service Request creation to work.
-4.  Make note of the user name and password because it will needed in the provisioning step below.
+2.  Make note of the user name and password because it will needed in the provisioning step below.
 
 #### C) TEST THE OSLC ENDPOINTS.
 Execute a quick `curl` command to validate OSLC endpoints used during provisioning.  Follow these steps to make sure you have the necessary info and objects in place.
@@ -46,7 +44,7 @@ Execute a quick `curl` command to validate OSLC endpoints used during provisioni
    `echo -n "username:password" | base64`
 2.  Execute the following `curl` command and replace TRIRIGA_URL and ENCODED_USERNAME_AND_PASSWORD with your info.
     `curl --location --request GET 'TRIRIGA_URL/oslc/spq/ibmWAProvisionQC?oslc.select=*' --header 'Authorization: Basic ENCODED_USERNAME_AND_PASSWORD' --header 'User-Agent: PostmanRuntime/7.23.0' --insecure`
-The response should have some `triParentBuildingTX` values returned.  If you get an OSLC error, check that at least one of the groups added to the assistant account has an organization set.   If you can't solve the problem on your own, contact your IBM representative.  Getting results from the curl command is required for the provisioning form to work in the next part of these instructions.
+The response should have some `triParentBuildingTX` values returned.  If you get an OSLC error, check that at least one of the groups added to the assistant account has an organization set.  If you can't solve the problem on your own, contact your IBM representative.  Getting results from the curl command is required for the provisioning form to work in the next part of these instructions.
 Also, optionally, if you understand Postman and would like to test all the OSLC calls, then you can test by using [the Postman collection]({{ site.github.repository_url }}/tree/master/postman) provided in the postman directory.  You will need to provide values for the variables building, space, etc. used in those payloads to match what is in your TRIRIGA instance. A successful test of the OSLC APIs when there are no OSLC errors.
 
 ### Part 2 - Submit the Provisioning Request
@@ -86,7 +84,7 @@ Once the information has been successfully received by the IBM TRIRIGA Assistant
 11. Upload the changes by clicking on the Upload view file icon.
 12. Click `Save & Close` button in upper right corner.
 
-#### G) EDIT THE ROOM RESERVATION AND SERVICE REQUEST VIEWS.
+#### G) (OPTIONAL) EDIT THE ROOM RESERVATION AND SERVICE REQUEST VIEWS.
 From the "Web View Designer", repeat the same steps directly above for the other views:
     - triRoomReservation View (set the `Production Filename`, edit files `trilazy-imports.html` and `triview-room-reservation-dev.html`).
     - triServiceRequest View (set the `Production Filename`, edit files `trilazy-imports.html` and `triview-service-request-dev.html`).
