@@ -90,7 +90,7 @@ From the "Web View Designer", repeat the same steps directly above for the other
     - triServiceRequest View (set the `Production Filename`, edit files `trilazy-imports.html` and `triview-service-request-dev.html`).
 
 #### H) (OPTIONAL) VULCANIZE THE VIEWS.
-If you feel that your workplace service apps are loading much slower after the edits, then you can "vulcanize" the apps [following these instructions](https://www.ibm.com/developerworks/community/wikis/home?lang=en#!/wiki/IBM TRIRIGA1/page/How to vulcanize your UX application).  If you do this, make sure you undo the change like F2 that sets the `Production Filename` to the `Development Filename`.
+If you feel that your workplace service apps are loading much slower after the edits, then you can "vulcanize" the apps [following these instructions](https://www.ibm.com/search?lang=en&cc=us&q=How+to+vulcanize+your+UX+application).  If you do this, make sure you undo the change like F2 that sets the `Production Filename` to the `Development Filename`.
 
 #### I) ADD INTEGRATION ID to Assistant Portal UX app
 A UX app, call the Assistant Portal, is provided in the OM package that will allow you to view some metrics on the usage of the Assistant.  Follow these steps to get the Portal working.
