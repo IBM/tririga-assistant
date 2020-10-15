@@ -4,7 +4,7 @@
 
 permalink: /customization/
 layout: home
-title: Customization TRIRIGA Assistant
+title: Customizing TRIRIGA Assistant
 description: 
 
 sidebar:
