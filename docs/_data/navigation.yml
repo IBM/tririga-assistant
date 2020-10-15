@@ -16,6 +16,8 @@ docs:
         url: /upgrading/
       - title: "Refreshing"
         url: /refreshing/
+      - title: "Customizing"
+        url: /customization/
       - title: "Uninstalling"
         url: /uninstall/
 
