@@ -70,7 +70,7 @@ The TRIRIGA Assistant needs to be in-the-loop on all communication with your ski
 
 In order to route requests to your assistant without having an API key for your Watson Assistant service, code for a proxy has been provided at [https://github.com/IBM/tririga-assistant-proxy](https://github.com/IBM/tririga-assistant-proxy).  Please follow the README in that repository for how to get the small proxy app running in your IBM Cloud environment.
 
-### 3.a. Send infomation about your skill
+### 3.a. Send information about your skill
 
 Send the following through email to a TRIRIGA Assistant teammeber or your IBM representative.
 
