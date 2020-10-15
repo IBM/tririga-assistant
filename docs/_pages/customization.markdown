@@ -31,10 +31,38 @@ Each of your top-level choices, that you would normally provide to the user as o
 
 Once the user has selecting an option, a string associated to that option, like create-lease, is sent to your assistant, through your tririga-assistant-proxy, and your assistant's response is passed to the user through the TRIRIGA Assistant.  If your assistant needs to access a service to fulfill the user's request, then that info must be returned via a client action so that the TRIRIGA Assistant can make that fulfillment requesnt on your behalf and provide the result back to your assistant to handle.  The diagram below describes this flow:
 
-[click here for larger view]({{ site.url }}{{ site.baseurl }}/assets/images/customization/HowItWorks.png)
-
 ![alt]({{ site.url }}{{ site.baseurl }}/assets/images/customization/HowItWorks.png)
 
-### Skill modifications
+[click here for larger view]({{ site.url }}{{ site.baseurl }}/assets/images/customization/HowItWorks.png)
 
-Work-in-progress.
+### Skill modifications to make it "headless"
+
+Since the TRIRIGA Assistant will be responsable for the greeting message, this needs to be removed from your skill.  Then, in order to handle the strings that map to your top-level intents, all of your dialog nodes need to be placed as a child of a node with condition true.
+
+![alt]({{ site.url }}{{ site.baseurl }}/assets/images/customization/dialog-flow.png)
+
+### Skill modifications for telling TRIRIGA Assistant when in a conversation with user
+
+In the "true node" that is the parent of all your dialog nodes, you should set a variable named `continueBPconvo` to `true`.  This variable is checked by the TRIRIGA Assistant to know if it should continue to forward all request to your skill.  Then for all nodes that handle the end of the dialog flow, you should set this variable to false.  Setting `continueBPconvo` to `false` will let the TRIRIGA Assistant know to show the starting options again to start the conversation over.
+
+### Skill modification for handling fulfillment
+
+The TRIRIGA Assistant needs to be in-the-loop on all communication with your skill, so you can't do fulfillment via webhooks or cloud functions called directly from your skill.  All fulfillment must be done via the client using client actions.  You can find more information on [how to use client actions via the Watson Assistant documentation](https://cloud.ibm.com/docs/assistant?topic=assistant-dialog-actions-client). But, in order to make our code generic, we require a few additions to the required client action response.  In the `parameters` object of the client action, we require you provide the URL to your fufillment in a property named `url` and that the body to be sent to that URL to be in a property named `body`.  For example:
+
+```
+  "actions": [
+    {
+      "name": "meaningful-action-name",
+      "type": "client",
+      "parameters": {
+        "url": "url-to-BP-fulfillment",
+        "body": {
+             "key": "value"
+          }
+        }
+      },
+      "result_variable": "meaningful-result-var-name"
+    }
+  ],
+```
+
