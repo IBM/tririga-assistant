@@ -43,7 +43,7 @@ Since the TRIRIGA Assistant will be responsable for the greeting message, this n
 
 ### 1.b. Skill modifications for telling TRIRIGA Assistant when in a conversation with user
 
-In the "true node" that is the parent of all your dialog nodes, you should set a variable named `continueBPconvo` to `true`.  This variable is checked by the TRIRIGA Assistant to know if it should continue to forward all request to your skill.  Then for all nodes that handle the end of the dialog flow, you should set this variable to false.  Setting `continueBPconvo` to `false` will let the TRIRIGA Assistant know to show the starting options again to start the conversation over.
+In the "true node" that is the parent of all your dialog nodes, you should set a variable named `continueBPConvo` to `true`.  This variable is checked by the TRIRIGA Assistant to know if it should continue to forward all request to your skill.  Then for all nodes that handle the end of the dialog flow, you should set this variable to false.  Setting `continueBPConvo` to `false` will let the TRIRIGA Assistant know to show the starting options again to start the conversation over.
 
 ### 1.c. Skill modification for handling fulfillment
 
