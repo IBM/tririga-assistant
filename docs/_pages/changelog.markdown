@@ -21,6 +21,8 @@ sidebar:
 
 4. Important Fix - Service requests created use user's location and organization.
 
+5. Minor fixes - provisioning queries only get active resources, fix ibmWABuildingsTimezonesRS properties, vulcanization problem with ibmAssistant web component, Portal UI fixes
+
 
 ## 1.0.5
 
