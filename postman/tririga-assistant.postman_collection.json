@@ -137,7 +137,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n    \"spi:triBuildingTX\": \"{{building}}\",\n    \"spi:triSpaceTX\": \"{{space}}\",\n    \"spi:triDescriptionTX\": \"It's too cold in here!\",\n    \"spi:triRequestClassCL\": \"Room Too Cold\",\n    \"spi:triCustomerOrgTX\": \"\\\\Organizations\",\n    \"spi:action\": \"Submit\",\n    \"spi:triRequestedForTX\": \"{{requestFor}}\"\n}",
+					"raw": "{\n    \"spi:triBuildingTX\": \"{{building}}\",\n    \"spi:triSpaceTX\": \"{{space}}\",\n    \"spi:triDescriptionTX\": \"It's too cold in here!\",\n    \"spi:triRequestClassCL\": \"Room Too Cold\",\n    \"spi:triCustomerOrgTX\": \"\\\\Organizations\",\n    \"spi:triLocationRequestedTX\": \"\\\\Locations\",\n    \"spi:action\": \"Submit\",\n    \"spi:triRequestedForTX\": \"{{requestFor}}\"\n}",
 					"options": {
 						"raw": {
 							"language": "json"
