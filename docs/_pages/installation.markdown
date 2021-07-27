@@ -75,7 +75,7 @@ Once the information has been successfully received by the IBM TRIRIGA Assistant
 7.  Click `Save & Close` button in upper right corner.
 8.  In the View Files section, click on `/triview-workplace-services-dev.html`.
 9.  Click on the Download View File icon.
-10. Edit the `triview-workplace-services-devhtml` file and at the bottom of the template section, paste the following lines of code above the `</template>` so the following HTML is between the `<template>` and `</template>` lines:
+10. Edit the `triview-workplace-services-devhtml` file and at the bottom of the template section, paste the following lines of code BEFORE `</template>` so the following HTML is between the `<template>` and `</template>` lines:
 **Make sure to replace `PLACE_INTEGRATION_ID_HERE` with the Integration ID provided.**
 
     ```html
