@@ -11,6 +11,16 @@ sidebar:
   nav: "docs"
 ---
 
+## 1.0.6.5
+
+1. New Feature - Reserve workspaces for half day 
+
+
+## 1.0.6.4
+
+1. Enhancement - Confirmation prompt includes complete info; date, time, building.
+
+
 ## 1.0.6
 
 1. New Feature - Reserve and locate workspaces. 
